@@ -4,6 +4,8 @@ NewsReader.Views.EntryItem = Backbone.View.extend({
 
   tagName: 'li',
 
+  className: "entry-item",
+
   render: function () {
     var content = this.template({model: this.model});
     this.$el.html(content);
