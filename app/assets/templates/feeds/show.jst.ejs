@@ -1,0 +1,6 @@
+<h3><%= model.escape('title') %></h3>
+<ul>
+  <% model.entries().each( function (entry) {  %>
+    <li><%= entry.escape('title') %></li>
+  <% }); %>
+</ul>
