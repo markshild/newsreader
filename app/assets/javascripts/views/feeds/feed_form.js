@@ -24,7 +24,7 @@ NewsReader.Views.FeedForm = Backbone.View.extend({
           Backbone.history.navigate('', {trigger: true});
         }.bind(this),
         error: function (model, resp) {
-          var errors = "Incorrect Data!";
+          var errors = "Incorrect Information Entered!";
           this.$('.errors').empty().append(errors);
         }.bind(this)
       });

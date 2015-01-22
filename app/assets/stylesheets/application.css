@@ -182,11 +182,11 @@ button.new-feed:active {
 }
 
 .errors{
-  color: red;
+  color: darkred;
   text-align: center;
-  font-size: 110px;
+  font-size: 20px;
   font-weight: bold;
-  -webkit-text-stroke: 1px white;
+  /*-webkit-text-stroke: 1px white;*/
 }
 
 a.new-feed {

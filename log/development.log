@@ -36843,3 +36843,475 @@ Started GET "/api/feeds" for 127.0.0.1 at 2014-12-30 18:08:26 -0500
 Processing by Api::FeedsController#index as JSON
   [1m[35mFeed Load (1.0ms)[0m  SELECT "feeds".* FROM "feeds"
 Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 1.0ms)
+  [1m[36m (10.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (4.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateFeeds (20130626182935)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (9.4ms)[0m  [1mCREATE TABLE "feeds" ("id" serial primary key, "url" character varying(255) NOT NULL, "title" character varying(255) NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.8ms)[0m  CREATE UNIQUE INDEX "index_feeds_on_url" ON "feeds" ("url")
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20130626182935"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateEntries (20130626183103)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (6.2ms)[0m  CREATE TABLE "entries" ("id" serial primary key, "guid" character varying(255) NOT NULL, "link" character varying(255) NOT NULL, "title" character varying(255) NOT NULL, "published_at" timestamp NOT NULL, "feed_id" integer NOT NULL, "json" text NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.4ms)[0m  [1mCREATE INDEX "index_entries_on_feed_id" ON "entries" ("feed_id")[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20130626183103"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+DEPRECATION WARNING: You didn't set config.secret_key_base. Read the upgrade documentation to learn more about this new config option. (called from service at /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138)
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-22 11:45:25 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 146ms (Views: 145.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/jquery.serializejson.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/feeds/entry_item.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/feeds/form.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/views/feeds/entry_item.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/views/feeds/feed_form.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/views/feeds/feed_show.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/views/feeds/feeds_index.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/routers/feeds_router.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-01-22 11:45:26 -0500
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-01-22 11:45:27 -0500
+Processing by Api::FeedsController#index as JSON
+  [1m[35mFeed Load (1.6ms)[0m  SELECT "feeds".* FROM "feeds"
+Completed 200 OK in 18ms (Views: 0.8ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/api/feeds" for 127.0.0.1 at 2015-01-22 11:47:22 -0500
+Processing by Api::FeedsController#create as JSON
+  Parameters: {"title"=>"Fresh Air", "url"=>"http://www.npr.org/rss/rss.php?id=13", "feed"=>{"url"=>"http://www.npr.org/rss/rss.php?id=13", "title"=>"Fresh Air"}}
+  [1m[36mFeed Load (2.7ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."url" = 'http://www.npr.org/rss/rss.php?id=13' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (8.2ms)[0m  [1mINSERT INTO "feeds" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00], ["title", "Fresh Air"], ["updated_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00], ["url", "http://www.npr.org/rss/rss.php?id=13"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00], ["feed_id", 1], ["guid", "http://www.npr.org/2015/01/21/378850301/sleater-kinney-comes-roaring-back-with-no-cities-to-love?utm_medium=RSS&amp;utm_campaign=freshair"], ["json", "{\"title\":\"Sleater-Kinney Comes Roaring Back With 'No Cities To Love'\",\"link\":\"http://www.npr.org/2015/01/21/378850301/sleater-kinney-comes-roaring-back-with-no-cities-to-love?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"description\":\"Few bands re-form with their power as intact as Sleater-Kinney have; fewer still brag about their power, and make the claim something more than a brag.\",\"content_encoded\":\"\\u003Cp\\u003EFew bands re-form with their power as intact as Sleater-Kinney have; fewer still brag about their power, and make the claim something more than a brag.\\u003C/p\\u003E\\u003Cp\\u003E\\u003Ca href=\\\"http://www.npr.org/templates/email/emailAFriend.php?storyId=378850301\\\"\\u003E\\u0026raquo; E-Mail This\\u003C/a\\u003E\\u003C/p\\u003E\",\"pubDate\":\"2015-01-21T12:13:00-05:00\",\"guid\":\"http://www.npr.org/2015/01/21/378850301/sleater-kinney-comes-roaring-back-with-no-cities-to-love?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"dc_creator\":\"Ken Tucker\"}"], ["link", "http://www.npr.org/2015/01/21/378850301/sleater-kinney-comes-roaring-back-with-no-cities-to-love?utm_medium=RSS&amp;utm_campaign=freshair"], ["published_at", Wed, 21 Jan 2015 17:13:00 UTC +00:00], ["title", "Sleater-Kinney Comes Roaring Back With 'No Cities To Love'"], ["updated_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00], ["feed_id", 1], ["guid", "http://www.npr.org/2015/01/21/378845059/leviathan-and-red-army-deliver-a-peek-inside-russia-now-and-then?utm_medium=RSS&amp;utm_campaign=freshair"], ["json", "{\"title\":\"'Leviathan' And 'Red Army' Deliver A Peek Inside Russia, Now And Then\",\"link\":\"http://www.npr.org/2015/01/21/378845059/leviathan-and-red-army-deliver-a-peek-inside-russia-now-and-then?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"description\":\"\\u0026lt;em\\u0026gt;Leviathan\\u0026lt;/em\\u0026gt; follows a man who fights back after a corrupt mayor uses eminent domain to claim his house, and \\u0026lt;em\\u0026gt;Red Army\\u0026lt;/em\\u0026gt; recounts the story of the Soviet Union's famous hockey team.\",\"content_encoded\":\"\\u003Cp\\u003E\\u003Cem\\u003ELeviathan\\u003C/em\\u003E follows a man who fights back after a corrupt mayor uses eminent domain to claim his house, and \\u003Cem\\u003ERed Army\\u003C/em\\u003E recounts the story of the Soviet Union's famous hockey team.\\u003C/p\\u003E\\u003Cp\\u003E\\u003Ca href=\\\"http://www.npr.org/templates/email/emailAFriend.php?storyId=378845059\\\"\\u003E\\u0026raquo; E-Mail This\\u003C/a\\u003E\\u003C/p\\u003E\",\"pubDate\":\"2015-01-21T12:13:00-05:00\",\"guid\":\"http://www.npr.org/2015/01/21/378845059/leviathan-and-red-army-deliver-a-peek-inside-russia-now-and-then?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"dc_creator\":\"John Powers\"}"], ["link", "http://www.npr.org/2015/01/21/378845059/leviathan-and-red-army-deliver-a-peek-inside-russia-now-and-then?utm_medium=RSS&amp;utm_campaign=freshair"], ["published_at", Wed, 21 Jan 2015 17:13:00 UTC +00:00], ["title", "'Leviathan' And 'Red Army' Deliver A Peek Inside Russia, Now And Then"], ["updated_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00], ["feed_id", 1], ["guid", "http://www.npr.org/2015/01/21/378660368/benedict-cumberbatch-on-alan-turings-awkwardness-and-sherlocks-sex-appeal?utm_medium=RSS&amp;utm_campaign=freshair"], ["json", "{\"title\":\"Benedict Cumberbatch On Alan Turing's Awkwardness And Sherlock's Sex Appeal\",\"link\":\"http://www.npr.org/2015/01/21/378660368/benedict-cumberbatch-on-alan-turings-awkwardness-and-sherlocks-sex-appeal?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"description\":\"The actor gained critical acclaim — and a big following — for his role in \\u0026lt;em\\u0026gt;Sherlock\\u0026lt;/em\\u0026gt;. Now he's up for an Oscar for his portrayal of eccentric mathematician Alan Turing in \\u0026lt;em\\u0026gt;The Imitation Game\\u0026lt;/em\\u0026gt;.\",\"content_encoded\":\"\\u003Cp\\u003EThe actor gained critical acclaim — and a big following — for his role in \\u003Cem\\u003ESherlock\\u003C/em\\u003E. Now he's up for an Oscar for his portrayal of eccentric mathematician Alan Turing in \\u003Cem\\u003EThe Imitation Game\\u003C/em\\u003E.\\u003C/p\\u003E\\u003Cp\\u003E\\u003Ca href=\\\"http://www.npr.org/templates/email/emailAFriend.php?storyId=378660368\\\"\\u003E\\u0026raquo; E-Mail This\\u003C/a\\u003E\\u003C/p\\u003E\",\"pubDate\":\"2015-01-21T12:13:00-05:00\",\"guid\":\"http://www.npr.org/2015/01/21/378660368/benedict-cumberbatch-on-alan-turings-awkwardness-and-sherlocks-sex-appeal?utm_medium=RSS\\u0026amp;utm_campaign=freshair\"}"], ["link", "http://www.npr.org/2015/01/21/378660368/benedict-cumberbatch-on-alan-turings-awkwardness-and-sherlocks-sex-appeal?utm_medium=RSS&amp;utm_campaign=freshair"], ["published_at", Wed, 21 Jan 2015 17:13:00 UTC +00:00], ["title", "Benedict Cumberbatch On Alan Turing's Awkwardness And Sherlock's Sex Appeal"], ["updated_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00], ["feed_id", 1], ["guid", "http://www.npr.org/2015/01/20/378588592/the-nightly-show-with-larry-wilmore-debuts-in-slot-vacated-by-stephen-colbert?utm_medium=RSS&amp;utm_campaign=freshair"], ["json", "{\"title\":\"'The Nightly Show With Larry Wilmore' Debuts In Slot Vacated By Stephen Colbert\",\"link\":\"http://www.npr.org/2015/01/20/378588592/the-nightly-show-with-larry-wilmore-debuts-in-slot-vacated-by-stephen-colbert?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"description\":\"On Monday night, Comedy Central premiered former \\u0026lt;em\\u0026gt;Daily Show\\u0026lt;/em\\u0026gt; correspondent Larry Wilmore's new show\\u0026lt;em\\u0026gt;. \\u0026lt;/em\\u0026gt;While Wilmore's sarcastic comments on clips were funny, the round-table discussion didn't sparkle.\",\"content_encoded\":\"\\u003Cp\\u003EOn Monday night, Comedy Central premiered former \\u003Cem\\u003EDaily Show\\u003C/em\\u003E correspondent Larry Wilmore's new show\\u003Cem\\u003E. \\u003C/em\\u003EWhile Wilmore's sarcastic comments on clips were funny, the round-table discussion didn't sparkle.\\u003C/p\\u003E\\u003Cp\\u003E\\u003Ca href=\\\"http://www.npr.org/templates/email/emailAFriend.php?storyId=378588592\\\"\\u003E\\u0026raquo; E-Mail This\\u003C/a\\u003E\\u003C/p\\u003E\",\"pubDate\":\"2015-01-20T14:01:00-05:00\",\"guid\":\"http://www.npr.org/2015/01/20/378588592/the-nightly-show-with-larry-wilmore-debuts-in-slot-vacated-by-stephen-colbert?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"dc_creator\":\"David Bianculli\"}"], ["link", "http://www.npr.org/2015/01/20/378588592/the-nightly-show-with-larry-wilmore-debuts-in-slot-vacated-by-stephen-colbert?utm_medium=RSS&amp;utm_campaign=freshair"], ["published_at", Tue, 20 Jan 2015 19:01:00 UTC +00:00], ["title", "'The Nightly Show With Larry Wilmore' Debuts In Slot Vacated By Stephen Colbert"], ["updated_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00], ["feed_id", 1], ["guid", "http://www.npr.org/2015/01/20/378586235/in-the-evil-hours-a-journalist-shares-his-struggle-with-ptsd?utm_medium=RSS&amp;utm_campaign=freshair"], ["json", "{\"title\":\"In 'The Evil Hours,' A Journalist Shares His Struggle With PTSD\",\"link\":\"http://www.npr.org/2015/01/20/378586235/in-the-evil-hours-a-journalist-shares-his-struggle-with-ptsd?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"description\":\"While embedded with troops in Iraq, David Morris almost died when a Humvee he was riding in ran over a roadside bomb. His book explores the history and science of post-traumatic stress disorder.\",\"content_encoded\":\"\\u003Cp\\u003EWhile embedded with troops in Iraq, David Morris almost died when a Humvee he was riding in ran over a roadside bomb. His book explores the history and science of post-traumatic stress disorder.\\u003C/p\\u003E\\u003Cp\\u003E\\u003Ca href=\\\"http://www.npr.org/templates/email/emailAFriend.php?storyId=378586235\\\"\\u003E\\u0026raquo; E-Mail This\\u003C/a\\u003E\\u003C/p\\u003E\",\"pubDate\":\"2015-01-20T14:01:00-05:00\",\"guid\":\"http://www.npr.org/2015/01/20/378586235/in-the-evil-hours-a-journalist-shares-his-struggle-with-ptsd?utm_medium=RSS\\u0026amp;utm_campaign=freshair\"}"], ["link", "http://www.npr.org/2015/01/20/378586235/in-the-evil-hours-a-journalist-shares-his-struggle-with-ptsd?utm_medium=RSS&amp;utm_campaign=freshair"], ["published_at", Tue, 20 Jan 2015 19:01:00 UTC +00:00], ["title", "In 'The Evil Hours,' A Journalist Shares His Struggle With PTSD"], ["updated_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00], ["feed_id", 1], ["guid", "http://www.npr.org/2015/01/19/377606644/gateway-to-freedom-heroes-danger-and-loss-on-the-underground-railroad?utm_medium=RSS&amp;utm_campaign=freshair"], ["json", "{\"title\":\"'Gateway To Freedom': Heroes, Danger And Loss On The Underground Railroad\",\"link\":\"http://www.npr.org/2015/01/19/377606644/gateway-to-freedom-heroes-danger-and-loss-on-the-underground-railroad?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"description\":\"While writing his new book, historian Eric Foner relied on a recently discovered record of slaves' escapes. He says the documents paint a \\\"revealing picture\\\" of life on the Underground Railroad.\",\"content_encoded\":\"\\u003Cp\\u003EWhile writing his new book, historian Eric Foner relied on a recently discovered record of slaves' escapes. He says the documents paint a \\\"revealing picture\\\" of life on the Underground Railroad.\\u003C/p\\u003E\\u003Cp\\u003E\\u003Ca href=\\\"http://www.npr.org/templates/email/emailAFriend.php?storyId=377606644\\\"\\u003E\\u0026raquo; E-Mail This\\u003C/a\\u003E\\u003C/p\\u003E\",\"pubDate\":\"2015-01-19T12:30:00-05:00\",\"guid\":\"http://www.npr.org/2015/01/19/377606644/gateway-to-freedom-heroes-danger-and-loss-on-the-underground-railroad?utm_medium=RSS\\u0026amp;utm_campaign=freshair\"}"], ["link", "http://www.npr.org/2015/01/19/377606644/gateway-to-freedom-heroes-danger-and-loss-on-the-underground-railroad?utm_medium=RSS&amp;utm_campaign=freshair"], ["published_at", Mon, 19 Jan 2015 17:30:00 UTC +00:00], ["title", "'Gateway To Freedom': Heroes, Danger And Loss On The Underground Railroad"], ["updated_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00], ["feed_id", 1], ["guid", "http://www.npr.org/2015/01/16/377716242/still-alice-is-a-triumph-for-julianne-moore-but-the-rest-of-film-is-thin?utm_medium=RSS&amp;utm_campaign=freshair"], ["json", "{\"title\":\"'Still Alice' Is A Triumph For Julianne Moore, But The Rest Of Film Is Thin\",\"link\":\"http://www.npr.org/2015/01/16/377716242/still-alice-is-a-triumph-for-julianne-moore-but-the-rest-of-film-is-thin?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"description\":\"The movie is based on neuroscientist Lisa Genova's novel about a linguistics professor with early-onset Alzheimer's disease. While Moore is fascinating, the rest of the characters are half-formed.\",\"content_encoded\":\"\\u003Cp\\u003EThe movie is based on neuroscientist Lisa Genova's novel about a linguistics professor with early-onset Alzheimer's disease. While Moore is fascinating, the rest of the characters are half-formed.\\u003C/p\\u003E\\u003Cp\\u003E\\u003Ca href=\\\"http://www.npr.org/templates/email/emailAFriend.php?storyId=377716242\\\"\\u003E\\u0026raquo; E-Mail This\\u003C/a\\u003E\\u003C/p\\u003E\",\"pubDate\":\"2015-01-16T13:55:00-05:00\",\"guid\":\"http://www.npr.org/2015/01/16/377716242/still-alice-is-a-triumph-for-julianne-moore-but-the-rest-of-film-is-thin?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"dc_creator\":\"David Edelstein\"}"], ["link", "http://www.npr.org/2015/01/16/377716242/still-alice-is-a-triumph-for-julianne-moore-but-the-rest-of-film-is-thin?utm_medium=RSS&amp;utm_campaign=freshair"], ["published_at", Fri, 16 Jan 2015 18:55:00 UTC +00:00], ["title", "'Still Alice' Is A Triumph For Julianne Moore, But The Rest Of Film Is Thin"], ["updated_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00], ["feed_id", 1], ["guid", "http://www.npr.org/2015/01/16/377715099/skeptic-takes-a-tour-of-self-helps-promise-land?utm_medium=RSS&amp;utm_campaign=freshair"], ["json", "{\"title\":\"Skeptic Takes A Tour Of Self-Help's 'Promise Land'\",\"link\":\"http://www.npr.org/2015/01/16/377715099/skeptic-takes-a-tour-of-self-helps-promise-land?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"description\":\"Despite being the daughter of a child psychologist and self-help author, Jessica Lamb-Shapiro has spent her life recoiling from the self-help industry. She talks about how the industry helped her.\",\"content_encoded\":\"\\u003Cp\\u003EDespite being the daughter of a child psychologist and self-help author, Jessica Lamb-Shapiro has spent her life recoiling from the self-help industry. She talks about how the industry helped her.\\u003C/p\\u003E\\u003Cp\\u003E\\u003Ca href=\\\"http://www.npr.org/templates/email/emailAFriend.php?storyId=377715099\\\"\\u003E\\u0026raquo; E-Mail This\\u003C/a\\u003E\\u003C/p\\u003E\",\"pubDate\":\"2015-01-16T13:55:00-05:00\",\"guid\":\"http://www.npr.org/2015/01/16/377715099/skeptic-takes-a-tour-of-self-helps-promise-land?utm_medium=RSS\\u0026amp;utm_campaign=freshair\"}"], ["link", "http://www.npr.org/2015/01/16/377715099/skeptic-takes-a-tour-of-self-helps-promise-land?utm_medium=RSS&amp;utm_campaign=freshair"], ["published_at", Fri, 16 Jan 2015 18:55:00 UTC +00:00], ["title", "Skeptic Takes A Tour Of Self-Help's 'Promise Land'"], ["updated_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00], ["feed_id", 1], ["guid", "http://www.npr.org/2015/01/17/377599380/fresh-air-weekend-boyhood-stars-broad-city-co-creators-a-review-of-ty-segall?utm_medium=RSS&amp;utm_campaign=freshair"], ["json", "{\"title\":\"Fresh Air Weekend: 'Boyhood' Stars, 'Broad City' Co-Creators, A Review Of Ty Segall\",\"link\":\"http://www.npr.org/2015/01/17/377599380/fresh-air-weekend-boyhood-stars-broad-city-co-creators-a-review-of-ty-segall?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"description\":\"Patricia Arquette and Ethan Hawke talk about filming \\u0026lt;em\\u0026gt;Boyhood\\u0026lt;/em\\u0026gt;; \\u0026lt;em\\u0026gt;Broad City\\u0026lt;/em\\u0026gt; stars Abbi Jacobson and Ilana Glazer discuss their Comedy Central show; Ken Tucker reviews Segall's new album.\",\"content_encoded\":\"\\u003Cp\\u003EPatricia Arquette and Ethan Hawke talk about filming \\u003Cem\\u003EBoyhood\\u003C/em\\u003E; \\u003Cem\\u003EBroad City\\u003C/em\\u003E stars Abbi Jacobson and Ilana Glazer discuss their Comedy Central show; Ken Tucker reviews Segall's new album.\\u003C/p\\u003E\\u003Cp\\u003E\\u003Ca href=\\\"http://www.npr.org/templates/email/emailAFriend.php?storyId=377599380\\\"\\u003E\\u0026raquo; E-Mail This\\u003C/a\\u003E\\u003C/p\\u003E\",\"pubDate\":\"2015-01-16T13:52:00-05:00\",\"guid\":\"http://www.npr.org/2015/01/17/377599380/fresh-air-weekend-boyhood-stars-broad-city-co-creators-a-review-of-ty-segall?utm_medium=RSS\\u0026amp;utm_campaign=freshair\"}"], ["link", "http://www.npr.org/2015/01/17/377599380/fresh-air-weekend-boyhood-stars-broad-city-co-creators-a-review-of-ty-segall?utm_medium=RSS&amp;utm_campaign=freshair"], ["published_at", Fri, 16 Jan 2015 18:52:00 UTC +00:00], ["title", "Fresh Air Weekend: 'Boyhood' Stars, 'Broad City' Co-Creators, A Review Of Ty Segall"], ["updated_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00], ["feed_id", 1], ["guid", "http://www.npr.org/2015/01/15/377442344/how-orwells-animal-farm-led-a-radical-muslim-to-moderation?utm_medium=RSS&amp;utm_campaign=freshair"], ["json", "{\"title\":\"How Orwell's 'Animal Farm' Led A Radical Muslim To Moderation\",\"link\":\"http://www.npr.org/2015/01/15/377442344/how-orwells-animal-farm-led-a-radical-muslim-to-moderation?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"description\":\"When Maajid Nawaz was 16 he joined a radical Islamist group. After four years in prison in Egypt, he decided to leave it. \\\"I'm very, very lucky to have been able to get through it,\\\" he says.\",\"content_encoded\":\"\\u003Cp\\u003EWhen Maajid Nawaz was 16 he joined a radical Islamist group. After four years in prison in Egypt, he decided to leave it. \\\"I'm very, very lucky to have been able to get through it,\\\" he says.\\u003C/p\\u003E\\u003Cp\\u003E\\u003Ca href=\\\"http://www.npr.org/templates/email/emailAFriend.php?storyId=377442344\\\"\\u003E\\u0026raquo; E-Mail This\\u003C/a\\u003E\\u003C/p\\u003E\",\"pubDate\":\"2015-01-15T14:05:00-05:00\",\"guid\":\"http://www.npr.org/2015/01/15/377442344/how-orwells-animal-farm-led-a-radical-muslim-to-moderation?utm_medium=RSS\\u0026amp;utm_campaign=freshair\"}"], ["link", "http://www.npr.org/2015/01/15/377442344/how-orwells-animal-farm-led-a-radical-muslim-to-moderation?utm_medium=RSS&amp;utm_campaign=freshair"], ["published_at", Thu, 15 Jan 2015 19:05:00 UTC +00:00], ["title", "How Orwell's 'Animal Farm' Led A Radical Muslim To Moderation"], ["updated_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00], ["feed_id", 1], ["guid", "http://www.npr.org/2015/01/14/377222071/fresh-air-remembers-national-book-award-winner-robert-stone?utm_medium=RSS&amp;utm_campaign=freshair"], ["json", "{\"title\":\"Fresh Air Remembers National Book Award Winner Robert Stone\",\"link\":\"http://www.npr.org/2015/01/14/377222071/fresh-air-remembers-national-book-award-winner-robert-stone?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"description\":\"Stone wrote eight novels, including \\u0026lt;em\\u0026gt;Dog Soldiers\\u0026lt;/em\\u0026gt;, and a memoir. He died Saturday at the age of 77. In 1986 and 2007, Stone talked with Terry Gross about, among other things, writing and his childhood.\",\"content_encoded\":\"\\u003Cp\\u003EStone wrote eight novels, including \\u003Cem\\u003EDog Soldiers\\u003C/em\\u003E, and a memoir. He died Saturday at the age of 77. In 1986 and 2007, Stone talked with Terry Gross about, among other things, writing and his childhood.\\u003C/p\\u003E\\u003Cp\\u003E\\u003Ca href=\\\"http://www.npr.org/templates/email/emailAFriend.php?storyId=377222071\\\"\\u003E\\u0026raquo; E-Mail This\\u003C/a\\u003E\\u003C/p\\u003E\",\"pubDate\":\"2015-01-14T14:08:00-05:00\",\"guid\":\"http://www.npr.org/2015/01/14/377222071/fresh-air-remembers-national-book-award-winner-robert-stone?utm_medium=RSS\\u0026amp;utm_campaign=freshair\"}"], ["link", "http://www.npr.org/2015/01/14/377222071/fresh-air-remembers-national-book-award-winner-robert-stone?utm_medium=RSS&amp;utm_campaign=freshair"], ["published_at", Wed, 14 Jan 2015 19:08:00 UTC +00:00], ["title", "Fresh Air Remembers National Book Award Winner Robert Stone"], ["updated_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00], ["feed_id", 1], ["guid", "http://www.npr.org/2015/01/14/377061731/in-broad-city-two-women-make-comedy-from-the-muck-of-new-york-living?utm_medium=RSS&amp;utm_campaign=freshair"], ["json", "{\"title\":\"In 'Broad City,' Two Women Make Comedy From The 'Muck' Of New York Living\",\"link\":\"http://www.npr.org/2015/01/14/377061731/in-broad-city-two-women-make-comedy-from-the-muck-of-new-york-living?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"description\":\"The Comedy Central show is about single 20-somethings who sit around and make each other laugh. Stars Abbi Jacobson and Ilana Glazer poke fun at New Yorkers' \\\"sick, masochistic romance\\\" with the city.\",\"content_encoded\":\"\\u003Cp\\u003EThe Comedy Central show is about single 20-somethings who sit around and make each other laugh. Stars Abbi Jacobson and Ilana Glazer poke fun at New Yorkers' \\\"sick, masochistic romance\\\" with the city.\\u003C/p\\u003E\\u003Cp\\u003E\\u003Ca href=\\\"http://www.npr.org/templates/email/emailAFriend.php?storyId=377061731\\\"\\u003E\\u0026raquo; E-Mail This\\u003C/a\\u003E\\u003C/p\\u003E\",\"pubDate\":\"2015-01-14T14:08:00-05:00\",\"guid\":\"http://www.npr.org/2015/01/14/377061731/in-broad-city-two-women-make-comedy-from-the-muck-of-new-york-living?utm_medium=RSS\\u0026amp;utm_campaign=freshair\"}"], ["link", "http://www.npr.org/2015/01/14/377061731/in-broad-city-two-women-make-comedy-from-the-muck-of-new-york-living?utm_medium=RSS&amp;utm_campaign=freshair"], ["published_at", Wed, 14 Jan 2015 19:08:00 UTC +00:00], ["title", "In 'Broad City,' Two Women Make Comedy From The 'Muck' Of New York Living"], ["updated_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00], ["feed_id", 1], ["guid", "http://www.npr.org/2015/01/13/376982262/man-seeking-woman-examines-how-it-feels-to-be-single-dating-and-rejected?utm_medium=RSS&amp;utm_campaign=freshair"], ["json", "{\"title\":\"'Man Seeking Woman' Examines How It Feels To Be Single, Dating And Rejected\",\"link\":\"http://www.npr.org/2015/01/13/376982262/man-seeking-woman-examines-how-it-feels-to-be-single-dating-and-rejected?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"description\":\"The new comedy series on FXX is a cross between an early Woody Allen comedy and a very edgy late-night comedy sketch. It's part literal, part impressionistic — even surrealist — and very different.\",\"content_encoded\":\"\\u003Cp\\u003EThe new comedy series on FXX is a cross between an early Woody Allen comedy and a very edgy late-night comedy sketch. It's part literal, part impressionistic — even surrealist — and very different.\\u003C/p\\u003E\\u003Cp\\u003E\\u003Ca href=\\\"http://www.npr.org/templates/email/emailAFriend.php?storyId=376982262\\\"\\u003E\\u0026raquo; E-Mail This\\u003C/a\\u003E\\u003C/p\\u003E\",\"pubDate\":\"2015-01-13T14:10:00-05:00\",\"guid\":\"http://www.npr.org/2015/01/13/376982262/man-seeking-woman-examines-how-it-feels-to-be-single-dating-and-rejected?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"dc_creator\":\"David Bianculli\"}"], ["link", "http://www.npr.org/2015/01/13/376982262/man-seeking-woman-examines-how-it-feels-to-be-single-dating-and-rejected?utm_medium=RSS&amp;utm_campaign=freshair"], ["published_at", Tue, 13 Jan 2015 19:10:00 UTC +00:00], ["title", "'Man Seeking Woman' Examines How It Feels To Be Single, Dating And Rejected"], ["updated_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00], ["feed_id", 1], ["guid", "http://www.npr.org/2015/01/13/376746926/the-magic-of-the-boyhood-experiment-time-and-patience?utm_medium=RSS&amp;utm_campaign=freshair"], ["json", "{\"title\":\"The Magic Of The 'Boyhood' Experiment: Time And Patience\",\"link\":\"http://www.npr.org/2015/01/13/376746926/the-magic-of-the-boyhood-experiment-time-and-patience?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"description\":\"If the story fell apart after 12 years of filming, it would have been a \\\"real drag,\\\" says Patricia Arquette, and a \\\"colossal waste of time,\\\" says Ethan Hawke. Instead, it won three Golden Globes.\",\"content_encoded\":\"\\u003Cp\\u003EIf the story fell apart after 12 years of filming, it would have been a \\\"real drag,\\\" says Patricia Arquette, and a \\\"colossal waste of time,\\\" says Ethan Hawke. Instead, it won three Golden Globes.\\u003C/p\\u003E\\u003Cp\\u003E\\u003Ca href=\\\"http://www.npr.org/templates/email/emailAFriend.php?storyId=376746926\\\"\\u003E\\u0026raquo; E-Mail This\\u003C/a\\u003E\\u003C/p\\u003E\",\"pubDate\":\"2015-01-13T14:10:00-05:00\",\"guid\":\"http://www.npr.org/2015/01/13/376746926/the-magic-of-the-boyhood-experiment-time-and-patience?utm_medium=RSS\\u0026amp;utm_campaign=freshair\"}"], ["link", "http://www.npr.org/2015/01/13/376746926/the-magic-of-the-boyhood-experiment-time-and-patience?utm_medium=RSS&amp;utm_campaign=freshair"], ["published_at", Tue, 13 Jan 2015 19:10:00 UTC +00:00], ["title", "The Magic Of The 'Boyhood' Experiment: Time And Patience"], ["updated_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00], ["feed_id", 1], ["guid", "http://www.npr.org/2015/01/12/376746860/ty-segall-goes-3-d-on-mr-face?utm_medium=RSS&amp;utm_campaign=freshair"], ["json", "{\"title\":\"Ty Segall Goes 3-D On 'Mr. Face'\",\"link\":\"http://www.npr.org/2015/01/12/376746860/ty-segall-goes-3-d-on-mr-face?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"description\":\"Ty Segall's new EP comes on two 7-inch discs that double as a pair of 3-D glasses.\",\"content_encoded\":\"\\u003Cp\\u003ETy Segall's new EP comes on two 7-inch discs that double as a pair of 3-D glasses.\\u003C/p\\u003E\\u003Cp\\u003E\\u003Ca href=\\\"http://www.npr.org/templates/email/emailAFriend.php?storyId=376746860\\\"\\u003E\\u0026raquo; E-Mail This\\u003C/a\\u003E\\u003C/p\\u003E\",\"pubDate\":\"2015-01-12T14:31:00-05:00\",\"guid\":\"http://www.npr.org/2015/01/12/376746860/ty-segall-goes-3-d-on-mr-face?utm_medium=RSS\\u0026amp;utm_campaign=freshair\",\"dc_creator\":\"Ken Tucker\"}"], ["link", "http://www.npr.org/2015/01/12/376746860/ty-segall-goes-3-d-on-mr-face?utm_medium=RSS&amp;utm_campaign=freshair"], ["published_at", Mon, 12 Jan 2015 19:31:00 UTC +00:00], ["title", "Ty Segall Goes 3-D On 'Mr. Face'"], ["updated_at", Thu, 22 Jan 2015 16:47:22 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 291ms (Views: 0.4ms | ActiveRecord: 36.9ms)
+
+
+Started GET "/api/feeds/1" for 127.0.0.1 at 2015-01-22 11:47:25 -0500
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mFeed Load (1.2ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mEntry Load (1.3ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1[0m  [["feed_id", 1]]
+Completed 200 OK in 44ms (Views: 39.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/feeds/1" for 127.0.0.1 at 2015-01-22 11:47:53 -0500
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mFeed Load (0.7ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mSQL (1.4ms)[0m  [1mUPDATE "feeds" SET "updated_at" = '2015-01-22 16:47:53.647742' WHERE "feeds"."id" = 1[0m
+  [1m[35m (0.5ms)[0m  SELECT "entries"."guid" FROM "entries"
+  [1m[36mEntry Load (0.6ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1[0m  [["feed_id", 1]]
+Completed 200 OK in 219ms (Views: 214.9ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/api/feeds" for 127.0.0.1 at 2015-01-22 12:02:14 -0500
+Processing by Api::FeedsController#create as JSON
+  Parameters: {"title"=>"Hello", "url"=>"dfsdfsd", "feed"=>{"url"=>"dfsdfsd", "title"=>"Hello"}}
+  [1m[35mFeed Load (1.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."url" = 'dfsdfsd' LIMIT 1
+Completed 500 Internal Server Error in 3ms
+
+Errno::ENOENT - No such file or directory @ rb_sysopen - dfsdfsd:
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/open-uri.rb:36:in `open'
+  app/models/feed.rb:11:in `find_or_create_by_url'
+  app/controllers/api/feeds_controller.rb:11:in `create'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:383:in `_run__3065816776502370763__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__1505701442417246918__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-22 12:04:42 -0500
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 136ms (Views: 136.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:42 -0500
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:42 -0500
+
+
+Started GET "/assets/feeds/entry_item.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:42 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:42 -0500
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:42 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-01-22 12:04:42 -0500
+
+
+Started GET "/assets/jquery.serializejson.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:42 -0500
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:42 -0500
+
+
+Started GET "/assets/feeds/form.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:43 -0500
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:43 -0500
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:43 -0500
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:43 -0500
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:43 -0500
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:43 -0500
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:43 -0500
+
+
+Started GET "/assets/routers/feeds_router.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:43 -0500
+
+
+Started GET "/assets/views/feeds/feed_form.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:43 -0500
+
+
+Started GET "/assets/views/feeds/entry_item.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:43 -0500
+
+
+Started GET "/assets/views/feeds/feeds_index.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:43 -0500
+
+
+Started GET "/assets/views/feeds/feed_show.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:43 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:43 -0500
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-01-22 12:04:43 -0500
+Processing by Api::FeedsController#index as JSON
+  [1m[36mFeed Load (0.6ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-22 12:04:55 -0500
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 33ms (Views: 33.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/jquery.serializejson.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/feeds/entry_item.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/feeds/form.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/views/feeds/entry_item.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/views/feeds/feed_form.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/views/feeds/feed_show.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/views/feeds/feeds_index.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/routers/feeds_router.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-01-22 12:04:56 -0500
+Processing by Api::FeedsController#index as JSON
+  [1m[35mFeed Load (1.1ms)[0m  SELECT "feeds".* FROM "feeds"
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 28ms (Views: 27.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/jquery.serializejson.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/feeds/entry_item.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/feeds/form.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/views/feeds/entry_item.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/views/feeds/feed_form.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/views/feeds/feed_show.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/views/feeds/feeds_index.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/routers/feeds_router.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-01-22 12:05:32 -0500
+Processing by Api::FeedsController#index as JSON
+  [1m[36mFeed Load (2.1ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 2.1ms)
