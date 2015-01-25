@@ -1,16 +1,12 @@
-# w7d3: [NewsReader][description]
+# A New NewsReader
 
-* [Live Demo](http://aa-newsreader.herokuapp.com/)
+This Newsreader scrapes RSS feeds and displays them. You can refresh the feeds and follow the links to the articles that tickle your fancy.
 
 To run locally:
 
 * bundle install
 * rake db:migrate
-* rake db:seed
 
-Three feeds with their entries will be created upon running `rake
-db:seed`.
+
 
 Good luck. Have fun!
-
-[description]: https://github.com/appacademy/backbone-curriculum/blob/master/projects/w7d3-news-reader.md
